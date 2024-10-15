@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlockSquad.Game", "BlockSquad.Game\BlockSquad.Game.csproj", "{5109BAA6-A522-4C4F-80A3-3C4031C6AB18}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlockSquad.Lobby", "BlockSquad.Lobby\BlockSquad.Lobby.csproj", "{39EF7E38-9DF5-4AE6-8E3B-2974C50F8BEF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlockSquad.Shared", "BlockSquad.Shared\BlockSquad.Shared.csproj", "{D4B9D89D-7B54-438F-8D35-46F7D38802F9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlockSquad.Api", "BlockSquad.API\BlockSquad.Api.csproj", "{72100535-1D3E-434B-96D7-6DE682764C5D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlockSquad.Sdk", "BlockSquad.Sdk\BlockSquad.Sdk.csproj", "{00DE2C4A-78CE-4B73-A6F6-638C56DA29A5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5109BAA6-A522-4C4F-80A3-3C4031C6AB18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5109BAA6-A522-4C4F-80A3-3C4031C6AB18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5109BAA6-A522-4C4F-80A3-3C4031C6AB18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5109BAA6-A522-4C4F-80A3-3C4031C6AB18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39EF7E38-9DF5-4AE6-8E3B-2974C50F8BEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39EF7E38-9DF5-4AE6-8E3B-2974C50F8BEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39EF7E38-9DF5-4AE6-8E3B-2974C50F8BEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39EF7E38-9DF5-4AE6-8E3B-2974C50F8BEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4B9D89D-7B54-438F-8D35-46F7D38802F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4B9D89D-7B54-438F-8D35-46F7D38802F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4B9D89D-7B54-438F-8D35-46F7D38802F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4B9D89D-7B54-438F-8D35-46F7D38802F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72100535-1D3E-434B-96D7-6DE682764C5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72100535-1D3E-434B-96D7-6DE682764C5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72100535-1D3E-434B-96D7-6DE682764C5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72100535-1D3E-434B-96D7-6DE682764C5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00DE2C4A-78CE-4B73-A6F6-638C56DA29A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00DE2C4A-78CE-4B73-A6F6-638C56DA29A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00DE2C4A-78CE-4B73-A6F6-638C56DA29A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00DE2C4A-78CE-4B73-A6F6-638C56DA29A5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
