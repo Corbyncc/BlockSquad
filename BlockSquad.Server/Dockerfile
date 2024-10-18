@@ -46,4 +46,4 @@ RUN chmod +x /unturned/ExampleServer.sh
 WORKDIR /unturned
 
 # Run the Unturned ExampleServer.sh
-CMD ["./ServerHelper.sh", "+InternetServer/BlockSquad", "-GSLT", "${GSLT}"]
+CMD ["./ServerHelper.sh", "-GSLT", "${GSLT}", "+InternetServer/BlockSquad"]
