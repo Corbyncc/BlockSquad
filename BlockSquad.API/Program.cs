@@ -1,5 +1,10 @@
+using BlockSquad.Api.Gslt;
+using BlockSquad.Api.Lobbies.Services;
+using BlockSquad.Api.ServerProviders;
 using BlockSquad.API.Database;
 using BlockSquad.API.Users.Services;
+using BlockSquad.Shared;
+using BlockSquad.Shared.Lobbies;
 using BlockSquad.Shared.Users;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,7 +20,17 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new Exception("Database connection string not found")));
 
+builder.Services.AddBlockSquadShared();
+
 builder.Services.AddTransient<IUsersService, UsersService>();
+builder.Services.AddSingleton<ILobbiesService, LobbiesService>();
+builder.Services.AddTransient<IServerProvider, AzureServerProvider>();
+builder.Services.AddSingleton<IGsltService, GsltService>();
+
+if (builder.Environment.IsDevelopment())
+{
+    builder.Configuration.AddJsonFile("appsettings.Local.json", optional: true, reloadOnChange: true);
+}
 
 var app = builder.Build();
 

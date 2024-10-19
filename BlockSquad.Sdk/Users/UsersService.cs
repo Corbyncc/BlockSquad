@@ -1,4 +1,4 @@
-﻿using BlockSquad.Sdk.API;
+﻿using BlockSquad.Shared.Api;
 using BlockSquad.Shared.Users;
 using Microsoft.Extensions.Logging;
 using System;

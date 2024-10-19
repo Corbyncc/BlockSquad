@@ -1,5 +1,4 @@
-﻿using BlockSquad.Sdk.API;
-using BlockSquad.Shared.Users;
+﻿using BlockSquad.Shared.Users;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace BlockSquad.Sdk
@@ -8,13 +7,7 @@ namespace BlockSquad.Sdk
     {
         public static void AddBlockSquadSdk(this IServiceCollection services)
         {
-            // Register HttpClient and internal API client
-            services.AddHttpClient<IApiClient, ApiClient>();
-
-            // Register the exposed service
-            // services.AddTransient<IMySdkService, MySdkService>();
-
-            services.AddTransient<IUsersService, BlockSquad.Sdk.Users.UsersService>();
+            services.AddTransient<IUsersService, Users.UsersService>();
         }
     }
 }

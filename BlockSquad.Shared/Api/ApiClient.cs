@@ -1,19 +1,14 @@
-﻿using BlockSquad.Sdk.API;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlockSquad.Sdk
+namespace BlockSquad.Shared.Api
 {
-    public class BlockSquadApiResponse<T>
-    {
-        public bool IsSuccess { get; set; }
-        public T? Data { get; set; }
-        public string? ErrorMessage { get; set; }
-    }
-
     public class ApiClient : IApiClient
     {
         private readonly HttpClient _httpClient;
@@ -51,14 +46,27 @@ namespace BlockSquad.Sdk
             return apiResponse;
         }
 
-        public async Task<BlockSquadApiResponse<TResponse>> PostAsync<TRequest, TResponse>(string url, TRequest data)
+        public async Task<BlockSquadApiResponse<TResponse>> PostAsync<TRequest, TResponse>(string url, TRequest data, bool applyAsQueryParams = false)
         {
             var apiResponse = new BlockSquadApiResponse<TResponse>();
 
             try
             {
-                var jsonContent = new StringContent(JsonConvert.SerializeObject(data), Encoding.UTF8, "application/json");
-                var response = await _httpClient.PostAsync(url, jsonContent);
+                HttpResponseMessage response;
+
+                if (applyAsQueryParams)
+                {
+                    var queryParams = JsonConvert.DeserializeObject<Dictionary<string, string>>(JsonConvert.SerializeObject(data));
+                    var queryString = string.Join("&", queryParams.Select(kvp => $"{WebUtility.UrlEncode(kvp.Key)}={WebUtility.UrlEncode(kvp.Value)}"));
+
+                    var urlWithParams = $"{url}?{queryString}";
+                    response = await _httpClient.PostAsync(urlWithParams, null); // Post with no body, only query params
+                }
+                else
+                {
+                    var jsonContent = new StringContent(JsonConvert.SerializeObject(data), Encoding.UTF8, "application/json");
+                    response = await _httpClient.PostAsync(url, jsonContent);
+                }
 
                 if (!response.IsSuccessStatusCode)
                 {

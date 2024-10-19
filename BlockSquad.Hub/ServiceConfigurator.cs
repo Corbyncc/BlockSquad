@@ -1,10 +1,9 @@
 ﻿using BlockSquad.Sdk;
-using BlockSquad.Shared;
 using Microsoft.Extensions.DependencyInjection;
 using OpenMod.API.Ioc;
 using OpenMod.API.Prioritization;
 
-namespace BlockSquad.Lobby
+namespace BlockSquad.Hub
 {
     [Priority(Priority = Priority.Lowest)]
     public class ServiceConfigurator : IServiceConfigurator
@@ -14,7 +13,6 @@ namespace BlockSquad.Lobby
             IServiceCollection serviceCollection)
         {
             serviceCollection.AddBlockSquadSdk();
-            serviceCollection.AddBlockSquadShared();
         }
     }
 }
