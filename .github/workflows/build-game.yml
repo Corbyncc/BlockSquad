@@ -1,0 +1,43 @@
+name: Build and Publish BlockSquad.Game
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the code from your repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Set up .NET Core SDK
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: "8.x" # Specify the SDK version (can be higher if needed)
+
+      # Restore dependencies for the BlockSquad.Game project
+      - name: Restore dependencies
+        run: dotnet restore ./BlockSquad.Game/BlockSquad.Game.csproj
+
+      # Build the BlockSquad.Game project
+      - name: Build the project
+        run: dotnet build ./BlockSquad.Game/BlockSquad.Game.csproj --configuration Release
+
+      # Publish the BlockSquad.Game project
+      - name: Publish the project
+        run: dotnet publish ./BlockSquad.Game/BlockSquad.Game.csproj --configuration Release --output ./publish
+
+      # Upload the publish directory as an artifact
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: BlockSquad.Game-published-artifact
+          path: ./publish
