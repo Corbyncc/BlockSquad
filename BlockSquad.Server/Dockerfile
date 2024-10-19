@@ -2,6 +2,8 @@ FROM debian:latest
 
 ENV DEBIAN_FRONTEND=noninteractive
 
+ARG GitHubToken
+
 EXPOSE 27015/tcp
 EXPOSE 27015/udp
 EXPOSE 27016/tcp
@@ -18,13 +20,13 @@ RUN apt-get update && apt-get install -y \
 
 COPY . .
 
-RUN chmod +x /pull-game.sh
+RUN chmod +x pull-game.sh
 
 RUN /bin/sh ./pull-game.sh
 
 RUN mkdir -p /unturned/Servers/BlockSquad/OpenMod/plugins && \
-    unzip /artifact.zip -d /unturned/Servers/BlockSquad/OpenMod/plugins && \
-    rm /artifact.zip
+    unzip artifact.zip -d /unturned/Servers/BlockSquad/OpenMod/plugins && \
+    rm artifact.zip
 
 RUN mkdir -p /steamcmd && \
     wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz -O /steamcmd/steamcmd.tar.gz && \
