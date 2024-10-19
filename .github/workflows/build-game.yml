@@ -40,4 +40,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: BlockSquad.Game-published-artifact
-          path: ./publish
+          path: ./publish/BlockSquad.Game.dll
