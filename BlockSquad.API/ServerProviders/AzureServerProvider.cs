@@ -56,6 +56,11 @@ public class AzureServerProvider : IServerProvider
             Value = gslt
         });
 
+        container.EnvironmentVariables.Add(new ContainerEnvironmentVariable("GitHubToken")
+        {
+            Value = _configuration["GitHubToken"]
+        });
+
         container.Ports.Add(new ContainerPort(27015) { Protocol = ContainerNetworkProtocol.Udp });
         container.Ports.Add(new ContainerPort(27016) { Protocol = ContainerNetworkProtocol.Udp });
 

@@ -9,10 +9,22 @@ EXPOSE 27016/udp
 
 RUN apt-get update && apt-get install -y \
     wget \
+    curl \
     ca-certificates \
     lib32gcc-s1 \
     unzip \
+    jq \
     && apt-get clean
+
+COPY . .
+
+RUN chmod +x /pull-game.sh
+
+RUN /bin/sh ./pull-game.sh
+
+RUN mkdir -p /unturned/Servers/BlockSquad/OpenMod/plugins && \
+    unzip /artifact.zip -d /unturned/Servers/BlockSquad/OpenMod/plugins && \
+    rm /artifact.zip
 
 RUN mkdir -p /steamcmd && \
     wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz -O /steamcmd/steamcmd.tar.gz && \
